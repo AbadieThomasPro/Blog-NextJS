@@ -1,10 +1,13 @@
-import { Header } from "@/components/Header";
-import Image from "next/image";
+import { getPosts } from "@/lib/Post-utils";
 
-export default function Home() {
+export default async function Home() {
+  const fileNames = await getPosts(); // Fonction pour récupérer les données
+
   return (
     <div>
-      <Header />
+      {fileNames.map((fileName) => (
+        <div key={fileName}>{fileName}</div>
+      ))}
     </div>
   );
 }
