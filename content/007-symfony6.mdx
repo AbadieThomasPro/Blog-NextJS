@@ -1,0 +1,34 @@
+---
+title: Les nouveautés de Symfony 6
+description: "Découvrez les fonctionnalités et améliorations apportées par Symfony 6, la dernière version majeure du framework PHP."
+publishingAt: "2024-11-20"
+---
+
+Bonjour !
+
+Symfony 6 est une version majeure du célèbre framework PHP, sortie en novembre 2021. Avec cette mise à jour, Symfony apporte des améliorations significatives en matière de performances, de fonctionnalités modernes et de simplification du développement. Voici un tour d’horizon des nouveautés les plus marquantes.
+
+---
+
+## Une version tournée vers la modernité
+
+### 1. **Compatibilité avec PHP 8.1**
+Symfony 6 exploite pleinement les fonctionnalités de **PHP 8.1**, telles que :
+- Les **énumérations (enums)** pour représenter des ensembles de valeurs constantes.
+- Les **propriétés readonly** pour des objets immuables.
+- Les **fibres (fibers)** pour une gestion plus efficace de l'asynchronisme.
+
+En exigeant PHP 8.1 comme prérequis, Symfony 6 garantit une utilisation optimale des dernières avancées du langage.
+
+---
+
+### 2. **Simplification des attributs**
+Les attributs PHP (introduits en PHP 8.0) remplacent désormais les annotations Doctrine pour une gestion des métadonnées plus naturelle et lisible. Exemple :
+```php
+use Symfony\Component\Routing\Annotation\Route;
+
+#[Route('/blog', name: 'blog')]
+class BlogController
+{
+    // ...
+}
