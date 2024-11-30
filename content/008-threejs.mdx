@@ -1,0 +1,95 @@
+---
+title: Découverte de Three.js : La bibliothèque pour la 3D sur le Web
+description: "Three.js est une bibliothèque JavaScript puissante pour créer des expériences 3D dans le navigateur. Découvrez ses fonctionnalités et comment l'utiliser."
+publishingAt: "2024-11-20"
+---
+
+Bonjour !
+
+Aujourd'hui, explorons **Three.js**, une bibliothèque JavaScript incontournable pour intégrer des expériences 3D interactives directement dans le navigateur. Que vous soyez novice en 3D ou développeur expérimenté, Three.js offre des outils puissants pour donner vie à vos idées.
+
+---
+
+## Qu'est-ce que Three.js ?
+
+Three.js est une bibliothèque **open source** qui permet de créer et d'afficher des graphiques 3D dans les navigateurs, en s'appuyant sur l'API WebGL. Elle simplifie considérablement le travail avec WebGL en fournissant une abstraction plus intuitive.
+
+---
+
+## Pourquoi utiliser Three.js ?
+
+### 1. **Facilité d'utilisation**
+Three.js masque la complexité de WebGL et propose des fonctionnalités prêtes à l’emploi :
+- Création d'objets 3D (cubes, sphères, formes personnalisées).
+- Gestion des caméras et de l'éclairage.
+- Animation des objets.
+
+### 2. **Portée étendue**
+Que ce soit pour un jeu vidéo, une visualisation de données, ou une application interactive, Three.js s’adapte à tous les besoins 3D.
+
+### 3. **Compatibilité navigateur**
+Three.js fonctionne sur tous les navigateurs modernes qui prennent en charge WebGL, sans nécessiter de plugin.
+
+---
+
+## Fonctionnalités clés de Three.js
+
+### 1. **Objets 3D et géométrie**
+Three.js propose des formes géométriques prêtes à l’emploi, comme des cubes, des sphères ou des tore. Vous pouvez aussi créer vos propres modèles en important des fichiers 3D.
+
+### 2. **Matériaux et textures**
+Ajoutez de la couleur, des reflets ou des textures réalistes grâce aux matériaux prédéfinis, comme :
+- `MeshBasicMaterial` : Simple et sans ombrage.
+- `MeshPhongMaterial` : Pour des reflets brillants.
+- `MeshStandardMaterial` : Idéal pour les rendus physiques.
+
+### 3. **Systèmes de caméra**
+Vous pouvez configurer différents types de caméras :
+- **PerspectiveCamera** : Pour des rendus réalistes.
+- **OrthographicCamera** : Pour des scènes sans perspective.
+
+### 4. **Éclairage avancé**
+Three.js prend en charge différents types de lumières :
+- Directionnelle.
+- Ambiante.
+- Spotlights.
+
+### 5. **Animation**
+Animez vos scènes avec des bibliothèques complémentaires comme **GSAP**, ou utilisez l’API d’animation intégrée.
+
+---
+
+## Exemple simple avec Three.js
+
+Voici un exemple de code qui affiche un cube rotatif :
+
+```javascript
+import * as THREE from 'three';
+
+// Initialisation de la scène, de la caméra et du rendu
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+const renderer = new THREE.WebGLRenderer();
+renderer.setSize(window.innerWidth, window.innerHeight);
+document.body.appendChild(renderer.domElement);
+
+// Création d'un cube
+const geometry = new THREE.BoxGeometry();
+const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+const cube = new THREE.Mesh(geometry, material);
+scene.add(cube);
+
+// Position de la caméra
+camera.position.z = 5;
+
+// Animation du cube
+function animate() {
+  requestAnimationFrame(animate);
+  cube.rotation.x += 0.01;
+  cube.rotation.y += 0.01;
+  renderer.render(scene, camera);
+}
+
+animate();
+```
+
