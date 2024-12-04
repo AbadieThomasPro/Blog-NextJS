@@ -9,10 +9,10 @@ export default async function Home() {
   }
 
   return (
-    <div>
+    <ul className="list-dics list-inside">
       {fileNames.map((fileName) => (
-        <div key={fileName}>{fileName}</div>
+        <li key={fileName.slug}>{fileName.title}</li>
       ))}
-    </div>
+    </ul>
   );
 }
