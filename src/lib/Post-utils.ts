@@ -7,7 +7,7 @@ import matter from "gray-matter";
 const postsDirectory = path.join(process.cwd(), "content");
 
 const PostSchema = z.object({
-    title: z.string(),
+    title: z.string().min(45).max(65), //oblige à mettre plus 45char pour l'optimisation SEO du titre (50-60)
     description: z.string(),
     publishingAt: z.coerce.string(),
 })
