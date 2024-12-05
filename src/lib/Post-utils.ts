@@ -10,6 +10,7 @@ const PostSchema = z.object({
     title: z.string().min(45).max(65), //oblige à mettre plus 45char pour l'optimisation SEO du titre (50-60)
     description: z.string(),
     publishingAt: z.coerce.string(),
+    published: z.boolean().optional().default(false)
 })
 
 type Post = z.infer<typeof PostSchema> & {
@@ -38,6 +39,11 @@ export const getPosts = async () => {
             });
             continue;
         }
+
+        if (!safeData.data.published && process.env.NODE_ENV !== "development") {
+            continue;
+        }
+
         posts.push({
             ...safeData.data,
             slug: fileName.replace(".mdx", ""),
