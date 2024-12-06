@@ -61,6 +61,13 @@ export const getPost = async (slug: string) => {
     return posts.find((post) => post.slug === slug);
 }
 
+
+
+
+
+
+
+
 //EXERCICE
 const exercisesDirectory = path.join(process.cwd(), "exercices");
 
@@ -69,6 +76,7 @@ const ExerciseSchema = z.object({
     description: z.string(),
     difficulty: z.string(), // Par exemple : "Facile", "Moyen", "Difficile"
     publishingAt: z.coerce.string(),
+    published: z.boolean().optional().default(false)
 });
 
 type Exercise = z.infer<typeof ExerciseSchema> & {

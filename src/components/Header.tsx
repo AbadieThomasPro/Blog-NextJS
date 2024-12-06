@@ -7,9 +7,10 @@ export const Header = () => {
                 Codelynx<span className="text-primary">.dev</span>
             </Link>
             <div className="ml-auto"></div>
-            <Link rel="stylesheet" href="/">
+            <Link rel="stylesheet" href="/posts">
                 Posts
             </Link>
+            <Link href={"/exercices"}>Exo</Link>
         </header>
 
     )
