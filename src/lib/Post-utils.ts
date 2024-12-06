@@ -60,3 +60,48 @@ export const getPost = async (slug: string) => {
     const posts = await getPosts();
     return posts.find((post) => post.slug === slug);
 }
+
+//EXERCICE
+const exercisesDirectory = path.join(process.cwd(), "exercices");
+
+const ExerciseSchema = z.object({
+    title: z.string(),
+    description: z.string(),
+    difficulty: z.string(), // Par exemple : "Facile", "Moyen", "Difficile"
+    publishingAt: z.coerce.string(),
+});
+
+type Exercise = z.infer<typeof ExerciseSchema> & {
+    slug: string; // Nom du fichier
+    content: string;
+};
+export const getExercises = async () => {
+    const files = await fs.readdir(exercisesDirectory);
+    const fileNames = files.filter(f => f.endsWith(".mdx")); // files.filter(f => f.match(/^\d{3}-Exercice.*\.mdx$/)); filtre uniquement les fichiers qui commencent par un numéro suivi de "-Exercice"
+
+    const exercises: Exercise[] = [];
+
+    for await (const fileName of fileNames) {
+        const fullPath = path.join(exercisesDirectory, fileName);
+        const fileContent = await fs.readFile(fullPath, "utf-8"); // Lire les fichiers
+        const frontMatter = matter(fileContent);
+
+        const safeData = ExerciseSchema.safeParse(frontMatter.data);
+
+        if (!safeData.success) {
+            console.error(`Erreur d'analyse du fichier: ${fileName}`);
+            safeData.error.issues.forEach((issue) => {
+                console.log(` - ${issue.path.join(" -> ")}: ${issue.message}`);
+            });
+            continue;
+        }
+
+        exercises.push({
+            ...safeData.data,
+            slug: fileName.replace(".mdx", ""),
+            content: frontMatter.content,
+        });
+    }
+
+    return exercises;
+}
