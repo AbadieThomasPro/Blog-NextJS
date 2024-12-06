@@ -1,0 +1,144 @@
+---
+title: "Créer une calculatrice web avec Next.js : Fiche d'exercice"
+description: "Apprenez à développer une calculatrice web interactive avec Next.js grâce à ce guide étape par étape, idéal pour les débutants."
+publishingAt: "2024-12-06"
+published: false
+---
+
+### **Fiche d'exercice détaillée : Création d'une calculatrice web avec Next.js**
+
+#### **Objectif pédagogique**  
+Créer une calculatrice web interactive pour se familiariser avec le framework Next.js, apprendre à gérer l'état dans React et mettre en pratique des concepts fondamentaux du développement web comme l’interaction utilisateur, la gestion des événements et le déploiement.
+
+---
+
+### **Matériel nécessaire**  
+- Ordinateur avec Node.js installé  
+- Éditeur de code (ex. Visual Studio Code)  
+- Navigateur web récent  
+
+---
+
+## **Étapes de réalisation**
+
+### **Étape 1 : Initialisation du projet**
+
+1. **Création d’un projet Next.js**  
+   - Lance un nouveau projet en utilisant une commande CLI dédiée (ex. `create-next-app`).
+   - Configure les fichiers de base pour s’assurer que le projet démarre correctement.  
+   - Teste l’exécution sur un serveur local pour valider l’environnement.
+
+2. **Structure des fichiers**  
+   - Crée un dossier spécifique (par exemple, `components`) où le composant de la calculatrice sera développé.
+   - Identifie où ce composant sera intégré dans la page principale du projet.
+
+---
+
+### **Étape 2 : Conception de l'interface utilisateur**
+
+1. **Définir la disposition de la calculatrice**  
+   - Identifie les parties principales de la calculatrice :  
+     a. Écran pour afficher les entrées et les résultats.  
+     b. Grille de boutons pour les chiffres et les opérateurs.
+
+2. **Répartition des boutons**  
+   - Organise les boutons de manière intuitive :  
+     a. Chiffres de 0 à 9.  
+     b. Opérateurs (`+`, `-`, `*`, `/`, etc.).  
+     c. Fonctionnalités supplémentaires comme `C` (clear) et `=` (calcul).  
+
+3. **Conception visuelle**  
+   - Imagine une apparence simple mais fonctionnelle (bordures, espacement entre les boutons, couleur pour différencier les opérateurs, etc.).
+
+---
+
+### **Étape 3 : Gestion des données et interactions utilisateur**
+
+1. **Modélisation des données**  
+   - Réfléchis aux données nécessaires :  
+     a. Une chaîne de caractères pour suivre les entrées de l’utilisateur.  
+     b. Une valeur pour le résultat.  
+
+2. **Gestion des interactions utilisateur**  
+   - Détermine les événements à gérer, par exemple :  
+     a. Lorsque l’utilisateur clique sur un bouton numérique.  
+     b. Lorsqu’un opérateur est sélectionné.  
+     c. Lors du calcul final.  
+
+3. **Actions à effectuer pour chaque événement**  
+   - Rédige un plan des actions à accomplir pour chaque bouton :  
+     a. Ajouter des chiffres ou opérateurs à l’écran.  
+     b. Calculer et afficher le résultat lorsque `=` est pressé.  
+     c. Réinitialiser les données lorsque `C` est pressé.
+
+---
+
+### **Étape 4 : Logique de calcul**
+
+1. **Décomposer les opérations**  
+   - Réfléchis à la manière dont les opérations seront évaluées :  
+     a. Les chiffres et opérateurs doivent être interprétés dans le bon ordre.  
+     b. Gère les cas d’erreur, comme les divisions par zéro ou les saisies invalides.
+
+2. **Choix de la méthode d’évaluation**  
+   - Explore différentes approches pour traiter les opérations mathématiques :  
+     a. Convertir la chaîne d'entrée en une expression évaluable.  
+     b. Implémenter un système de calcul personnalisé pour plus de contrôle.
+
+---
+
+### **Étape 5 : Fonctionnalités avancées (optionnel)**
+
+1. **Fonctionnalités supplémentaires possibles**  
+   - Ajout de boutons pour des fonctionnalités comme :  
+     a. Pourcentage (`%`).  
+     b. Parenthèses pour les priorités des calculs (`(` et `)`).  
+     c. Affichage des erreurs spécifiques.  
+
+2. **Tests des limites**  
+   - Implémente des cas pour gérer les limites d'utilisation :  
+     a. Entrées trop longues.  
+     b. Saisies qui ne suivent pas une logique mathématique.
+
+---
+
+### **Étape 6 : Tests et validation**
+
+1. **Tests fonctionnels**  
+   - Vérifie que chaque bouton fonctionne selon les attentes.  
+   - Teste toutes les opérations possibles, y compris les erreurs (ex. division par zéro).  
+
+2. **Feedback utilisateur**  
+   - Améliore l’interface et les interactions en fonction des retours obtenus lors des tests.
+
+---
+
+### **Étape 7 : Optimisation et déploiement**
+
+1. **Optimisation du code**  
+   - Simplifie la gestion des événements.  
+   - Minimise le nombre de calculs inutiles pour améliorer les performances.
+
+2. **Déploiement en production**  
+   - Prépare le projet pour le déploiement (compilation).  
+   - Héberge l'application sur une plateforme (ex. Vercel ou Netlify).
+
+---
+
+### **Critères d’évaluation**
+
+1. **Interface utilisateur**  
+   - La calculatrice est claire, fonctionnelle et agréable visuellement.
+
+2. **Fonctionnalité**  
+   - Tous les boutons répondent correctement et produisent le résultat attendu.  
+
+3. **Robustesse**  
+   - L'application gère les erreurs de manière élégante (pas de crash ou de comportement inattendu).  
+
+4. **Code propre**  
+   - Le code est bien structuré, commenté et facile à comprendre.
+
+---
+
+En suivant ces étapes, vous construirez une calculatrice web robuste et fonctionnelle tout en consolidant vos compétences en Next.js !
