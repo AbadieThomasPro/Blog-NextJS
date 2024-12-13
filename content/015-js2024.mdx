@@ -30,3 +30,52 @@ switch (fruit) {
     console.log("Fruit inconnu");
 }
 ```
+
+### **2. Temporal API : Gestion améliorée des dates et heures**
+
+La nouvelle Temporal API remplace avantageusement l’ancienne Date. Plus intuitive, elle simplifie la manipulation des fuseaux horaires, des durées, et des calculs de dates complexes.
+
+```JavaScript
+const today = Temporal.Now.plainDateISO();
+console.log(today); // Exemple : 2024-11-20
+```
+
+### **3. Décorateurs (Decorators)**
+
+Après plusieurs années d’attente, les décorateurs font officiellement partie du langage.
+Ils permettent de modifier ou d'ajouter des fonctionnalités aux classes et à leurs membres.
+
+```javascript
+function Log(target, key) {
+  console.log(`${key} a été accédé.`);
+}
+
+class User {
+  @Log
+  name = "Alice";
+}
+
+const user = new User();
+console.log(user.name);
+```
+
+### **4. Améliorations des Promises**
+
+Les nouvelles méthodes comme Promise.anySettled offrent une meilleure gestion des scénarios asynchrones.
+
+```Javascript
+const promises = [fetch("/api"), fetch("/backup")];
+const result = await Promise.anySettled(promises);
+console.log(result);
+```
+
+### **5. Optimisations des modules ECMAScript**
+
+Les modules JavaScript (ESM) gagnent en puissance avec une meilleure prise en charge des importations dynamiques et des namespaces.
+
+```javascript 
+const { calculate } = await import("./math.js");
+console.log(calculate(2, 3));
+```
+
+---
