@@ -30,3 +30,57 @@ fetch('https://api.example.com/data')
   .then(response => response.json())
   .then(data => console.log(data));
 ```
+### 2. **API DOM**
+Offre un accès et une manipulation complète du Document Object Model (DOM) d'une page Web. Parfait pour manipuler les éléments HTML et CSS en temps réel.
+
+```javascript
+document.querySelector('#button').addEventListener('click', () => {
+  alert('Bouton cliqué!');
+});
+```
+
+### 3. **API Web Storage**
+Permet de stocker des données localement dans le navigateur avec des options comme localStorage et sessionStorage.
+
+```javascript 
+localStorage.setItem('username', 'JohnDoe');
+console.log(localStorage.getItem('username'));
+```
+
+### 4. **API WebRTC**
+Facilite les communications en temps réel via les navigateurs, comme les appels vidéo et audio ou le partage de fichiers.
+
+```javascript 
+const peerConnection = new RTCPeerConnection();
+```
+
+### 5. **API Geolocation**
+Utilisée pour obtenir la localisation géographique de l’utilisateur (avec son consentement).
+
+```javascript 
+navigator.geolocation.getCurrentPosition(position => {
+  console.log(`Latitude: ${position.coords.latitude}`);
+  console.log(`Longitude: ${position.coords.longitude}`);
+});
+```
+
+### 6. **API Canvas**
+Offre la possibilité de dessiner graphiquement dans un <canvas/> HTML, utile pour les jeux et animations.
+
+```javascript 
+const canvas = document.getElementById('myCanvas');
+const ctx = canvas.getContext('2d');
+ctx.fillStyle = 'blue';
+ctx.fillRect(10, 10, 100, 100);
+```
+
+### 7. **API Notifications**
+Affiche des notifications natives aux utilisateurs via le navigateur.
+
+```javascript 
+if (Notification.permission === "granted") {
+  new Notification("Hello! Voici une notification.");
+}
+```
+---
+
