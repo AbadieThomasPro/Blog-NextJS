@@ -64,3 +64,11 @@
     @apply bg-background text-foreground;
   }
 }
+
+.mdx-content>*:last-child {
+  margin-bottom: 0px;
+}
+
+.mdx-content>*:first-child {
+  margin-top: 0px;
+}

@@ -1,16 +1,16 @@
 import { ReactNode } from "react"
 import { Alert } from "@/components/ui/alert"
-import { Note } from "lucide-react"
+import { Notebook } from "lucide-react"
 
 export type MdxNoteProps = {
-    childre: ReactNode,
+    children: ReactNode,
 }
 
-export const MdxNote = () => {
+export const MdxNote = (props: MdxNoteProps) => {
     return (
-        <Alert>
-            <Note size={12} />
-            <div></div>
+        <Alert className="border-blue-500 bg-blue-500/10">
+            <Notebook size={12} />
+            <div className="mdx-content">{props.children}</div>
         </Alert>
     )
 }
