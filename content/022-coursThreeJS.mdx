@@ -82,6 +82,47 @@ const cube = new THREE.Mesh(geometry, material);
 scene.add(cube);
 ```
 
+## Lumières et matériaux
+### 1. Ajout d'une lumière
+Les matériaux plus réalistes nécessitent une lumière :
+```typescript
+const light = new THREE.PointLight(0xffffff, 1, 100);
+light.position.set(10, 10, 10);
+scene.add(light);
+```
+### 2. Matériaux avancés
+Three.js offre plusieurs matériaux :
+```typescript
+const material = new THREE.MeshStandardMaterial({ color: 0x00ff00, roughness: 0.5 });
+```
+## Textures et environnements
+### 1. Chargement d'une texture
+```typescript
+import { TextureLoader } from "three";
+
+const textureLoader = new THREE.TextureLoader();
+const texture = textureLoader.load("texture.jpg");
+
+const material = new THREE.MeshBasicMaterial({ map: texture });
+const plane = new THREE.Mesh(new THREE.PlaneGeometry(5, 5), material);
+scene.add(plane);
+```
+## Ajout d'un contrôleur de caméra
+Pour interagir avec la scène, utilise OrbitControls :
+```typescript
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
+
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.enableDamping = true;
+
+function animate() {
+  controls.update();
+  renderer.render(scene, camera);
+  requestAnimationFrame(animate);
+}
+animate();
+```
+## Intégration avec React (React Three Fiber)
 
 ```
 ```
