@@ -1,0 +1,41 @@
+---
+title: "Améliore la coloration syntaxique avec rehype-shiki"
+description: "Découvre comment utiliser rehype-shiki pour une coloration syntaxique avancée dans tes projets MDX."
+publishingAt: "2024-02-01"
+---
+
+## Qu'est-ce que rehype-shiki ?
+
+[rehype-shiki](https://github.com/shikijs/shiki) est un plugin basé sur [Shiki](https://shiki.matsu.io/) qui permet d'ajouter une coloration syntaxique avancée aux fichiers Markdown et MDX. Il utilise des thèmes VS Code pour un rendu esthétique et lisible.
+
+## Pourquoi utiliser rehype-shiki ?
+
+- 🎨 **Thèmes personnalisés** : Utilise les mêmes thèmes que VS Code.
+- ⚡ **Performance optimisée** : Génère du HTML statique avec la coloration appliquée.
+- 🔥 **Prise en charge de nombreux langages** : Plus de 100 langages supportés.
+
+## Installation et configuration
+
+Ajoute `@shikijs/rehype` à ton projet :
+
+```bash
+npm install @shikijs/rehype shiki
+```
+Puis, configure-le dans ton pipeline MDX :
+
+```typescript
+import rehypeShiki from "@shikijs/rehype";
+import { getHighlighter } from "shiki";
+
+const highlighter = await getHighlighter({ theme: "github-dark" });
+
+const rehypePlugin = [[rehypeShiki, { highlighter }]];
+
+```
+
+## Conclusion
+rehype-shiki est un excellent choix si tu veux une coloration syntaxique de qualité professionnelle pour tes blogs, documentations ou sites Next.js en MDX. 🚀
+
+```bash
+Tu peux facilement l'intégrer dans ton projet **Next.js** ou **MDX** pour améliorer l'expérience de lecture du code. 😊
+```
