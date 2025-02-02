@@ -123,10 +123,31 @@ function animate() {
 animate();
 ```
 ## Intégration avec React (React Three Fiber)
+Si tu utilises React, React Three Fiber simplifie le travail :
+```bash
+npm install @react-three/fiber three
+```
+Puis, crée un composant :
+```typescript
+import { Canvas } from "@react-three/fiber";
 
+export default function Scene() {
+  return (
+    <Canvas>
+      <mesh>
+        <boxGeometry />
+        <meshStandardMaterial color="red" />
+      </mesh>
+    </Canvas>
+  );
+}
 ```
-```
-```
-```
+## Conclusion
+Three.js est une bibliothèque puissante qui permet de créer des expériences 3D interactives facilement. Avec React Three Fiber, il est encore plus simple d'intégrer des scènes 3D dans des applications React.
+
+🚀 À toi de jouer ! Teste Three.js et crée des expériences immersives !
+
+Ce guide donne une **introduction complète** à Three.js avec du **code clair** et une **progression logique** pour apprendre à créer une scène 3D de base. 🚀
+
 ```
 ```
