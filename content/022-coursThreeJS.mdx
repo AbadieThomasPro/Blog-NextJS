@@ -194,7 +194,27 @@ loader.load(
 ```
 ### 3. Ajout d’animations
 
+Si ton modèle Blender contient des animations, Three.js peut les lire avec AnimationMixer :
+```ts
+let mixer: THREE.AnimationMixer;
 
+loader.load("models/mon-objet.glb", (gltf) => {
+  const model = gltf.scene;
+  scene.add(model);
+
+  mixer = new THREE.AnimationMixer(model);
+  gltf.animations.forEach((clip) => {
+    mixer.clipAction(clip).play();
+  });
+});
+
+function animate() {
+  requestAnimationFrame(animate);
+  if (mixer) mixer.update(0.01);
+  renderer.render(scene, camera);
+}
+animate();
+```
 ## Conclusion
 Three.js est une bibliothèque puissante qui permet de créer des expériences 3D interactives facilement. Avec React Three Fiber, il est encore plus simple d'intégrer des scènes 3D dans des applications React.
 
