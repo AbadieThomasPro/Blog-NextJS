@@ -192,6 +192,9 @@ loader.load(
   }
 );
 ```
+
+---
+
 ### 3. Ajout d’animations
 
 Si ton modèle Blender contient des animations, Three.js peut les lire avec AnimationMixer :
@@ -214,6 +217,42 @@ function animate() {
   renderer.render(scene, camera);
 }
 animate();
+```
+
+---
+
+### 4. Optimisation des modèles
+
+Pour de meilleures performances : ✅ Réduis la taille du modèle : supprime les éléments inutiles dans Blender.
+✅ Utilise des textures compressées pour alléger le chargement.
+✅ Limite le nombre de polygones pour améliorer le FPS.
+
+---
+
+### 5. Intégration avec React Three Fiber
+
+Si tu utilises React Three Fiber, l'importation est encore plus simple avec @react-three/drei :
+```bash
+npm install @react-three/drei @react-three/fiber three
+```
+Puis, charge ton modèle :
+```ts
+import { Canvas } from "@react-three/fiber";
+import { useGLTF } from "@react-three/drei";
+
+function Model() {
+  const { scene } = useGLTF("/models/mon-objet.glb");
+  return <primitive object={scene} />;
+}
+
+export default function Scene() {
+  return (
+    <Canvas>
+      <ambientLight />
+      <Model />
+    </Canvas>
+  );
+}
 ```
 ## Conclusion
 Three.js est une bibliothèque puissante qui permet de créer des expériences 3D interactives facilement. Avec React Three Fiber, il est encore plus simple d'intégrer des scènes 3D dans des applications React.
