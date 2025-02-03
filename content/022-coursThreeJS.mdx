@@ -159,6 +159,41 @@ Nous allons privilégier le format **GLTF/GLB**, car il est léger et bien suppo
 
 ---
 
+### 2. Chargement du modèle dans Three.js
+
+Une fois le fichier `.glb` exporté, utilise `GLTFLoader` pour l'importer dans Three.js :
+
+```ts
+import * as THREE from "three";
+import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
+
+// Création de la scène
+const scene = new THREE.Scene();
+
+// Ajout d'un éclairage pour bien voir le modèle
+const light = new THREE.DirectionalLight(0xffffff, 1);
+light.position.set(1, 1, 1);
+scene.add(light);
+
+// Initialisation du chargeur GLTF
+const loader = new GLTFLoader();
+loader.load(
+  "models/mon-objet.glb",
+  (gltf) => {
+    const model = gltf.scene;
+    model.position.set(0, 0, 0);
+    scene.add(model);
+  },
+  (xhr) => {
+    console.log(`Chargement : ${(xhr.loaded / xhr.total) * 100}%`);
+  },
+  (error) => {
+    console.error("Erreur de chargement :", error);
+  }
+);
+```
+### 3. Ajout d’animations
+
 
 ## Conclusion
 Three.js est une bibliothèque puissante qui permet de créer des expériences 3D interactives facilement. Avec React Three Fiber, il est encore plus simple d'intégrer des scènes 3D dans des applications React.
