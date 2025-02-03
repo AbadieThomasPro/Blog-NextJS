@@ -142,6 +142,24 @@ export default function Scene() {
   );
 }
 ```
+## Importer des objets Blender dans Three.js
+
+### 1. Exportation depuis Blender
+
+Blender permet d’exporter des modèles 3D dans plusieurs formats compatibles avec Three.js, notamment **GLTF/GLB**, **OBJ** et **FBX**.  
+
+Nous allons privilégier le format **GLTF/GLB**, car il est léger et bien supporté par Three.js.
+
+#### Étapes :
+1. Modélise ton objet dans **Blender**.
+2. Sélectionne l'objet à exporter.
+3. Va dans **Fichier > Exporter > glTF 2.0 (.glb, .gltf)**.
+4. Choisis **GLB (binaire)** pour un meilleur rendu et compression.
+5. Enregistre le fichier dans ton projet.
+
+---
+
+
 ## Conclusion
 Three.js est une bibliothèque puissante qui permet de créer des expériences 3D interactives facilement. Avec React Three Fiber, il est encore plus simple d'intégrer des scènes 3D dans des applications React.
 
