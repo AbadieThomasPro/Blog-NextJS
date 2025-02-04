@@ -76,7 +76,60 @@ animate();
 ---
 
 ## 3. Importation d’objets Blender dans Three.js
+Blender permet d'exporter des modèles au format GLTF/GLB, qui est optimisé pour Three.js.
 
+### 3.1. Exportation depuis Blender
+1. Ouvrez Blender et modélisez votre objet.
+
+2. Allez dans File > Export > glTF 2.0 (.glb, .gltf).
+
+3. Choisissez GLB (binaire) pour optimiser la compatibilité.
+
+4. Enregistrez le fichier dans votre projet.
+
+### 3.2. Chargement du modèle dans Three.js
+```ts
+import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
+const loader = new GLTFLoader();
+
+loader.load("models/mon-objet.glb", (gltf) => {
+  scene.add(gltf.scene);
+});
+```
+---
+
+## 4. Animation avancée d’objets
+
+### 4.1. Animation via Blender
+Dans Blender, ajoutez des animations via l'éditeur d'actions.
+
+Exportez le modèle avec les animations incluses.
+
+### 4.2. Utilisation d’AnimationMixer dans Three.js
+```ts
+let mixer;
+loader.load("models/mon-objet.glb", (gltf) => {
+  const model = gltf.scene;
+  scene.add(model);
+  mixer = new THREE.AnimationMixer(model);
+  gltf.animations.forEach((clip) => {
+    mixer.clipAction(clip).play();
+  });
+});
+
+function animate() {
+  requestAnimationFrame(animate);
+  if (mixer) mixer.update(0.01);
+  renderer.render(scene, camera);
+}
+animate();
+```
+---
+
+```
+```
+```
+```
 ```
 ```
 ```
