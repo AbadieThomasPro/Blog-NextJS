@@ -126,10 +126,62 @@ animate();
 ```
 ---
 
+## 5. Décomposition dynamique d’un objet
+
+### 5.1. Fragmentation d’un objet en morceaux
+Dans Blender :
+
+1. Sélectionnez votre objet.
+
+2. Utilisez Cell Fracture pour créer des morceaux.
+
+3. Exportez le modèle en GLB
+
+### 5.2. Explosion dynamique dans Three.js
+```ts
+const fragments = [];
+loader.load("models/objet-fracture.glb", (gltf) => {
+  gltf.scene.children.forEach((piece) => {
+    fragments.push(piece);
+    scene.add(piece);
+  });
+});
+
+function explode() {
+  fragments.forEach((piece) => {
+    piece.position.x += Math.random() * 2 - 1;
+    piece.position.y += Math.random() * 2 - 1;
+    piece.position.z += Math.random() * 2 - 1;
+  });
+}
+
+window.addEventListener("click", explode);
 ```
+
+---
+
+## 6. Physique avancée avec Cannon.js
+
+### 6.1. Installation
+```bash
+npm install cannon-es
 ```
+
+### 6.2. Ajout d’une physique réaliste
+```ts
+import * as CANNON from "cannon-es";
+const world = new CANNON.World();
+world.gravity.set(0, -9.81, 0);
+
+const sphereBody = new CANNON.Body({ mass: 1, shape: new CANNON.Sphere(1) });
+world.addBody(sphereBody);
+
+function updatePhysics() {
+  world.step(1 / 60);
+  renderer.render(scene, camera);
+  requestAnimationFrame(updatePhysics);
+}
+updatePhysics();
 ```
-```
-```
-```
+
 ```
