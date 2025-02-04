@@ -1,0 +1,82 @@
+---
+title: "Maîtriser Three.js : Guide complet pour les débutants"
+description: "Apprends à créer des scènes 3D interactives avec Three.js grâce à ce guide détaillé."
+publishingAt: "2025-02-04"
+---
+
+# Cours avancé et expert sur Three.js et Blender
+
+## Introduction
+
+Three.js est une bibliothèque JavaScript puissante permettant de créer des scènes 3D interactives directement dans un navigateur. Couplé à Blender, un logiciel de modélisation 3D avancé, il devient un outil formidable pour créer des mondes virtuels riches et dynamiques. Ce cours vous guidera à travers des techniques avancées pour intégrer des modèles 3D de Blender à Three.js, animer ces objets, gérer l'interaction utilisateur et optimiser les performances.
+
+---
+
+## 1. Prérequis
+Avant de commencer, assurez-vous d'avoir :
+
+Des bases solides en JavaScript et WebGL.
+
+Une bonne compréhension des scènes et de la modélisation dans Blender.
+
+Un projet Three.js fonctionnel avec Vite ou Webpack.
+
+Installation de Three.js :
+```bash
+npm install three @react-three/fiber @react-three/drei
+```
+
+---
+
+## 2. Structure d’une scène Three.js
+Une scène Three.js se compose de plusieurs éléments :
+
+Scène : Contient tous les objets 3D.
+
+Caméra : Définit le point de vue.
+
+Rendu : Affiche la scène dans le navigateur.
+
+Lumières : Éclaire les objets.
+
+Objets 3D : Les modèles ou formes.
+
+Matériaux & textures : Gèrent l'apparence des objets.
+
+Exemple d’une scène basique :
+```ts
+import * as THREE from "three";
+
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+const renderer = new THREE.WebGLRenderer();
+renderer.setSize(window.innerWidth, window.innerHeight);
+document.body.appendChild(renderer.domElement);
+
+const geometry = new THREE.BoxGeometry();
+const material = new THREE.MeshStandardMaterial({ color: 0x0077ff });
+const cube = new THREE.Mesh(geometry, material);
+scene.add(cube);
+
+const light = new THREE.DirectionalLight(0xffffff, 1);
+light.position.set(5, 5, 5);
+scene.add(light);
+
+camera.position.z = 5;
+
+function animate() {
+  requestAnimationFrame(animate);
+  cube.rotation.x += 0.01;
+  cube.rotation.y += 0.01;
+  renderer.render(scene, camera);
+}
+animate();
+```
+
+---
+
+## 3. Importation d’objets Blender dans Three.js
+
+```
+```
+```
