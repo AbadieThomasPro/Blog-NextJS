@@ -19,3 +19,19 @@ React 19 introduit plusieurs nouveaux Hooks pour améliorer la gestion des état
 - **`useFormStatus`** : Fournit des informations sur l'état actuel d'un formulaire, utile pour valider les entrées utilisateur et afficher des messages d'erreur appropriés.
 - **`useOptimistic`** : Facilite la mise en œuvre des mises à jour optimistes en permettant aux composants d'afficher immédiatement les modifications anticipées avant la confirmation du serveur.
 
+## 3. API `use`
+
+Le nouveau Hook `use` permet de lire directement la valeur d'un contexte ou d'une promesse. Il peut être appelé de manière conditionnelle sans générer d'erreur, simplifiant ainsi la gestion des promesses dans les composants fonctionnels. Lors de l'utilisation de `use` avec une promesse, il est nécessaire d'utiliser `Suspense` pour gérer l'attente de la résolution ou du rejet de la requête.
+
+## 4. Composants Serveur
+
+Les **Composants Serveur** permettent de rendre des parties de l'interface utilisateur côté serveur, réduisant ainsi la taille du bundle côté client et améliorant les performances. Cette fonctionnalité, déjà présente dans des frameworks comme Next.js, est désormais native à React.
+
+## 5. Métadonnées du Document
+
+React 19 introduit une API pour gérer les métadonnées du document, telles que le titre de la page et les balises meta, directement depuis les composants React. Cela simplifie la gestion des métadonnées dans les applications React, en particulier pour les applications monopage (SPA).
+
+## 6. Chargement des Ressources
+
+Le nouveau cycle de vie `Suspense` pour le chargement des ressources, y compris les scripts, les feuilles de style et les polices, permet à React de déterminer quand le contenu est prêt à être affiché, éliminant ainsi tout scintillement "non stylisé".  
+De nouvelles API de chargement de ressources, telles que `preload` et `preinit`, offrent un contrôle plus précis sur le moment où une ressource doit être chargée et initialisée. En permettant aux ressources de se charger de manière asynchrone en arrière-plan, React 19 minimise les temps d'attente et garantit que les utilisateurs peuvent interagir avec le contenu sans interruption.
