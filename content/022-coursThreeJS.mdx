@@ -147,6 +147,18 @@ export default function Scene() {
 ### 1. **WebGLRenderer()** 
 Le **WebGLRenderer** est le moteur de rendu de Three.js qui utilise WebGL pour dessiner la scène. Il est responsable de la conversion des objets 3D en pixels affichables à l'écran.
 
+#### Paramètres :
+- `antialias` (booléen) : active l’anti-aliasing pour un rendu plus lisse.
+- `alpha` (booléen) : permet un rendu avec transparence du fond.
+- `precision` : spécifie la précision des shaders (`"highp"`, `"mediump"`, `"lowp"`).
+
+### Exemple :
+```js
+const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+renderer.setSize(window.innerWidth, window.innerHeight);
+document.body.appendChild(renderer.domElement);
+```
+
 ## Importer des objets Blender dans Three.js
 
 ### 1. Exportation depuis Blender
