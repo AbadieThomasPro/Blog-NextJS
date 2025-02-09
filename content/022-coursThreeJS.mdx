@@ -154,7 +154,7 @@ Le **WebGLRenderer** est le moteur de rendu de Three.js qui utilise WebGL pour d
 - `powerPreference` : Optimisation du GPU (`"default"`, `"high-performance"`, `"low-power"`).
 - `logarithmicDepthBuffer` (booléen) : Utile pour les scènes de grande profondeur.
 
-### Exemple :
+#### Exemple :
 ```js
 const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
@@ -167,6 +167,25 @@ Permet d'améliorer le rendu des couleurs en simulant un effet cinématographiqu
 ```js
 renderer.toneMapping = THREE.ACESFilmicToneMapping;
 renderer.toneMappingExposure = 1.2;
+```
+#### SRGBColorSpace
+Permet d'assurer un rendu des couleurs fidèle aux écrans modernes.
+```js
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+```
+### 3. Les Caméras
+
+#### PerspectiveCamera
+Utilisée pour un rendu en perspective.
+##### Paramètres :
+- `fov` (nombre) : Champ de vision en degrés.
+- `aspect` (nombre) : Ratio largeur/hauteur.
+- `near` (nombre) : Distance de clipping proche.
+- `far` (nombre): Distance de clipping lointaine.
+#### exemple :
+```js
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+camera.position.set(0, 5, 10);
 ```
 
 ## Importer des objets Blender dans Three.js
