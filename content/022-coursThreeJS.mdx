@@ -151,12 +151,22 @@ Le **WebGLRenderer** est le moteur de rendu de Three.js qui utilise WebGL pour d
 - `antialias` (booléen) : active l’anti-aliasing pour un rendu plus lisse.
 - `alpha` (booléen) : permet un rendu avec transparence du fond.
 - `precision` : spécifie la précision des shaders (`"highp"`, `"mediump"`, `"lowp"`).
+- `powerPreference` : Optimisation du GPU (`"default"`, `"high-performance"`, `"low-power"`).
+- `logarithmicDepthBuffer` (booléen) : Utile pour les scènes de grande profondeur.
 
 ### Exemple :
 ```js
 const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
+```
+### 2. Gestion des couleurs et du rendu
+
+#### ACESFilmicToneMapping
+Permet d'améliorer le rendu des couleurs en simulant un effet cinématographique.
+```js
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.2;
 ```
 
 ## Importer des objets Blender dans Three.js
