@@ -187,6 +187,23 @@ Utilisée pour un rendu en perspective.
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 camera.position.set(0, 5, 10);
 ```
+#### OrthographicCamera
+Utilisée pour des projections sans perspective (ex: jeux 2D, interfaces).
+```js
+const camera = new THREE.OrthographicCamera(-5, 5, 5, -5, 0.1, 1000);
+camera.position.set(0, 5, 10);
+```
+---
+
+### 4. Les Lumières
+
+#### HemisphereLight
+Lumière douce venant du ciel et du sol.
+```js
+const hemiLight = new THREE.HemisphereLight(0xffffff, 0x444444, 1);
+scene.add(hemiLight);
+```
+
 
 ## Importer des objets Blender dans Three.js
 
