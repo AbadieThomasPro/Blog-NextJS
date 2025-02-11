@@ -238,6 +238,28 @@ const material = new THREE.MeshStandardMaterial({ color: 0x00ff00, metalness: 0.
 
 ### 6. Les Géométries
 
+#### BoxGeometry
+Crée un cube.
+```js
+const geometry = new THREE.BoxGeometry(1, 1, 1);
+```
+
+#### SphereGeometry
+Crée une sphère.
+```js
+const geometry = new THREE.SphereGeometry(1, 32, 32);
+```
+
+#### IcosahedronGeometry
+Crée une sphère à base de triangles.
+```js
+const geometry = new THREE.IcosahedronGeometry(1, 0);
+```
+
+---
+
+
+
 ## Importer des objets Blender dans Three.js
 
 ### 1. Exportation depuis Blender
