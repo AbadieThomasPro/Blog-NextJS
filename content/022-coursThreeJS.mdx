@@ -288,6 +288,20 @@ const texture = textureLoader.load('texture.jpg');
 
 ---
 
+### 9. Animations et Rendu
+
+#### requestAnimationFrame
+Permet d'animer la scène en appelant une fonction à chaque frame.
+```js
+function animate() {
+    requestAnimationFrame(animate);
+    renderer.render(scene, camera);
+}
+animate();
+```
+
+---
+
 ## Importer des objets Blender dans Three.js
 
 ### 1. Exportation depuis Blender
