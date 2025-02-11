@@ -258,7 +258,35 @@ const geometry = new THREE.IcosahedronGeometry(1, 0);
 
 ---
 
+### 7. Les Objets et Groupes
 
+#### Mesh
+Un objet 3D combinant une géométrie et un matériau.
+```js
+const cube = new THREE.Mesh(new THREE.BoxGeometry(1, 1, 1), new THREE.MeshStandardMaterial({ color: 0x00ff00 }));
+scene.add(cube);
+```
+
+#### Group
+Permet de regrouper plusieurs objets.
+```js
+const group = new THREE.Group();
+group.add(object1, object2);
+scene.add(group);
+```
+
+---
+
+### 8. Les Textures
+
+#### TextureLoader
+Charge une texture depuis une image.
+```js
+const textureLoader = new THREE.TextureLoader();
+const texture = textureLoader.load('texture.jpg');
+```
+
+---
 
 ## Importer des objets Blender dans Three.js
 
