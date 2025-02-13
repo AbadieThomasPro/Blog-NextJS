@@ -160,6 +160,7 @@ const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 ```
+
 ### 2. Gestion des couleurs et du rendu
 
 #### ACESFilmicToneMapping
@@ -251,9 +252,15 @@ const geometry = new THREE.SphereGeometry(1, 32, 32);
 ```
 
 #### IcosahedronGeometry
-Crée une sphère à base de triangles.
+Création d'un icosaèdre (forme géométrique complexe).
 ```js
 const geometry = new THREE.IcosahedronGeometry(1, 0);
+```
+
+#### TubeGeometry
+Géométrie en forme de tube.
+```js
+const tubeGeometry = new THREE.TubeGeometry(curve, 20, 2, 8, false);
 ```
 
 ---
@@ -275,6 +282,12 @@ group.add(object1, object2);
 scene.add(group);
 ```
 
+#### scale.setScalar
+Permet de redimensionner un objet uniformément.
+```js
+mesh.scale.setScalar(2);
+```
+
 ---
 
 ### 8. Les Textures
@@ -288,7 +301,12 @@ const texture = textureLoader.load('texture.jpg');
 
 ---
 
-### 9. Animations et Rendu
+### 9. Gestion des caméras dynamiques
+
+
+---
+
+### 10. Animations et Rendu
 
 #### requestAnimationFrame
 Permet d'animer la scène en appelant une fonction à chaque frame.
