@@ -174,6 +174,13 @@ Permet d'assurer un rendu des couleurs fidèle aux écrans modernes.
 ```js
 renderer.outputColorSpace = THREE.SRGBColorSpace;
 ```
+
+#### FogExp2
+Ajoute un effet de brouillard exponentiel.
+```js
+scene.fog = new THREE.FogExp2(0x000000, 0.3);
+```
+
 ### 3. Les Caméras
 
 #### PerspectiveCamera
@@ -303,6 +310,18 @@ const texture = textureLoader.load('texture.jpg');
 
 ### 9. Gestion des caméras dynamiques
 
+#### camera.position.copy et lookAt
+Définir la position et la direction de la caméra.
+```js
+camera.position.copy(new THREE.Vector3(5, 3, 5));
+camera.lookAt(new THREE.Vector3(0, 0, 0));
+```
+
+#### updateCamera
+Mise à jour des matrices de la caméra.
+```js
+camera.updateProjectionMatrix();
+```
 
 ---
 
